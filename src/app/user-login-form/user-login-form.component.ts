@@ -34,7 +34,7 @@ export class UserLoginFormComponent implements OnInit {
         localStorage.setItem('user', result.user.username);
         this.router.navigate(['movies']);
         this.dialogRef.close();
-        this.snackBar.open(result, 'OK', {
+        this.snackBar.open(`${result.user.username} has logged in!`, 'OK', {
           duration: 2000,
         });
       },

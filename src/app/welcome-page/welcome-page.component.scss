@@ -3,6 +3,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-color: #222222;
 }
 
 .box {
@@ -11,21 +12,23 @@
   justify-content: center;
   align-items: center;
   padding: 2rem;
+  background-color: #ffffff;
   border-radius: 0.5rem;
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
     0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  transition: all 500ms;
+}
+
+.box:hover {
+  scale: 1.1;
 }
 
 .welcomeHeader {
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(1.75rem, 5vw, 2.25rem);
   font-weight: 500;
 }
 
 .button-seperate {
   display: flex;
   gap: 2rem;
-}
-
-.buttonStyling {
-  font-size: clamp(0.75rem, 5vw, 1.25rem);
 }
