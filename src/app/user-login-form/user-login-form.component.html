@@ -24,29 +24,10 @@
           required
         />
       </mat-form-field>
-      <mat-form-field>
-        <input
-          matInput
-          [(ngModel)]="userData.email"
-          type="email"
-          placeholder="Email"
-          name="Email"
-          required
-        />
-      </mat-form-field>
-      <mat-form-field>
-        <input
-          matInput
-          [(ngModel)]="userData.birthday"
-          type="date"
-          placeholder="Birthday"
-          name="Birthday"
-        />
-      </mat-form-field>
     </form>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button (click)="registerUser()" color="primary">
+    <button mat-raised-button (click)="loginUser()" color="primary">
       Sign Up
     </button>
   </mat-card-actions>
