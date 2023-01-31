@@ -2,7 +2,9 @@
   <mat-card *ngFor="let movie of movies" style="flex: 1" class="cardBox">
     <img src="{{ movie.imagePath }}" alt="{{ movie.title }}" class="cardImg" />
     <mat-card-actions class="cardActions">
-      <button mat-button color="primary">Genre</button>
+      <button mat-button color="primary" (click)="genreDialog(movie)">
+        Genre
+      </button>
       <button mat-button color="primary" (click)="directorDialog(movie)">
         Director
       </button>

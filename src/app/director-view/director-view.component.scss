@@ -1,19 +1,28 @@
 .cardBox {
   display: flex;
-  gap: .5rem;
+  gap: 0.5rem;
   padding: 1rem;
 
   .cardTitle {
     font-size: clamp(1.25rem, 5vw, 2rem);
     font-weight: 500;
+    padding-bottom: 0.5rem;
   }
 
   .cardContent {
     font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+
+    .cardSubtitle {
+      font-size: 1.15rem;
+      font-weight: 500;
+    }
   }
 
   .cardActions {
     padding-top: 1rem;
-    padding-left: 1.10rem;
+    padding-left: 1.1rem;
   }
 }

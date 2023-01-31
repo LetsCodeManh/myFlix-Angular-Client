@@ -1,1 +1,14 @@
-<p>genre-view works!</p>
+<mat-card class="cardBox">
+  <ng-container *ngFor="let genre of data.arrayData">
+    <mat-card-header>
+      <mat-card-title class="cardTitle"> {{ genre.name }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="cardContent">
+      <div class="cardSubtitle">Description:</div>
+      <div>{{ genre.description }}</div>
+    </mat-card-content>
+  </ng-container>
+  <mat-card-actions class="cardActions">
+    <button mat-raised-button mat-dialog-close>Close</button>
+  </mat-card-actions>
+</mat-card>

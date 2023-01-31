@@ -5,6 +5,7 @@ import { DirectorViewComponent } from '../director-view/director-view.component'
 
 // Fetch API from server
 import { FetchApiDataService } from '../fetch-api-data.service';
+import { GenreViewComponent } from '../genre-view/genre-view.component';
 import { MovieViewComponent } from '../movie-view/movie-view.component';
 
 // Different View
@@ -64,11 +65,16 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+  genreDialog(movie: any): void {
+    this.dialog.open(GenreViewComponent, {
+      data: { arrayData: movie.genre },
+    });
+  }
+
   directorDialog(movie: any): void {
     const { name, bio } = movie.director;
     this.dialog.open(DirectorViewComponent, {
       data: { name, bio },
-      panelClass: 'director-dialog',
     });
   }
 
@@ -76,7 +82,6 @@ export class MovieCardComponent implements OnInit {
     const { title, description } = movie;
     this.dialog.open(MovieViewComponent, {
       data: { title, description },
-      panelClass: 'movie-dialog',
     });
   }
 }
