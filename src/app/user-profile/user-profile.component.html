@@ -1,1 +1,65 @@
-<p>user-profile works!</p>
+<div class="flex padding">
+  <h1 class="headerChange">{{ updateUser.username }} Profile!</h1>
+  <form class="flex">
+    <mat-form-field class="field">
+      <input
+        matInput
+        [(ngModel)]="updateUser.username"
+        value="{{ updateUser.username }}"
+        type="text"
+        name="Username"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field class="field">
+      <input
+        matInput
+        [(ngModel)]="updateUser.password"
+        value="{{ updateUser.password }}"
+        type="password"
+        name="Password"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field class="field">
+      <input
+        matInput
+        [(ngModel)]="updateUser.email"
+        value="{{ updateUser.email }}"
+        type="email"
+        name="Email"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field class="field">
+      <input
+        matInput
+        [(ngModel)]="updateUser.birthday"
+        value="{{ updateUser.birthday | date }}"
+        type="date"
+        name="Birthday"
+    
+      />
+    </mat-form-field>
+  </form>
+
+  <div>
+    <button
+      mat-raised-button
+      class="buttonStyling"
+      (click)="updateUserData()"
+      color="accent"
+      style="margin-right: 1rem;"
+    >
+      Edit profile
+    </button>
+    <button
+      mat-raised-button
+      class="buttonStyling"
+      (click)="deleteUser()"
+      color="warn"
+    >
+      Delete account
+    </button>
+  </div>
+</div>
