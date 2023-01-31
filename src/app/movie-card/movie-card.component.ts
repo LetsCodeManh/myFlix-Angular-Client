@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 import { MatDialog } from '@angular/material/dialog';
-import { DirectorViewComponent } from '../director-view/director-view.component';
 
 // Fetch API from server
 import { FetchApiDataService } from '../fetch-api-data.service';
-import { GenreViewComponent } from '../genre-view/genre-view.component';
-import { MovieViewComponent } from '../movie-view/movie-view.component';
 
 // Different View
+import { GenreViewComponent } from '../genre-view/genre-view.component';
+import { MovieViewComponent } from '../movie-view/movie-view.component';
+import { DirectorViewComponent } from '../director-view/director-view.component';
 
 @Component({
   selector: 'app-movie-card',
@@ -25,6 +25,7 @@ export class MovieCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMovies();
+    this.getFavoriteMovies();
   }
 
   getMovies(): void {
@@ -36,13 +37,14 @@ export class MovieCardComponent implements OnInit {
 
   getFavoriteMovies(): void {
     this.fetchApiData.getFavoriteMovies().subscribe((resp: any) => {
-      this.favoriteMovies = resp;
+      this.favoriteMovies = resp.favoriteMovies;
       console.log(this.favoriteMovies);
     });
   }
 
   isFavorite(movieId: string): boolean {
-    return this.favoriteMovies.includes(movieId);
+    let favorite = this.favoriteMovies.includes(movieId);
+    return favorite;
   }
 
   toggleFavorite(movieId: string): void {
