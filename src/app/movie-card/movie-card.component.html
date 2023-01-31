@@ -3,9 +3,15 @@
     <img src="{{ movie.imagePath }}" alt="{{ movie.title }}" class="cardImg" />
     <mat-card-actions class="cardActions">
       <button mat-button color="primary">Genre</button>
-      <button mat-button color="primary">Director</button>
-      <button mat-button color="primary">Synopsis</button>
-      <mat-icon style="cursor: pointer;" (click)="toggleFavorite(movie._id)">{{ isFavorite(movie._id) ? "favorite": "favorite_border"}}</mat-icon>
+      <button mat-button color="primary" (click)="directorDialog(movie)">
+        Director
+      </button>
+      <button mat-button color="primary" (click)="movieDialog(movie)">
+        Movie
+      </button>
+      <a class="add-to-favorite-btn" (click)="toggleFavorite(movie._id)">
+        <mat-icon> favorite </mat-icon>
+      </a>
     </mat-card-actions>
   </mat-card>
 </div>

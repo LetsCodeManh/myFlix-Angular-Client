@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
+import { DirectorViewComponent } from '../director-view/director-view.component';
 
 // Fetch API from server
 import { FetchApiDataService } from '../fetch-api-data.service';
+import { MovieViewComponent } from '../movie-view/movie-view.component';
 
 // Different View
 
@@ -15,19 +17,19 @@ import { FetchApiDataService } from '../fetch-api-data.service';
 export class MovieCardComponent implements OnInit {
   movies: any[] = [];
   favoriteMovies: any[] = [];
-
-  constructor(public fetchApiData: FetchApiDataService) {}
+  constructor(
+    public fetchApiData: FetchApiDataService,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.getMovies();
-    this.getFavoriteMovies();
   }
 
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
       console.log(this.movies);
-      return this.movies;
     });
   }
 
@@ -35,7 +37,6 @@ export class MovieCardComponent implements OnInit {
     this.fetchApiData.getFavoriteMovies().subscribe((resp: any) => {
       this.favoriteMovies = resp;
       console.log(this.favoriteMovies);
-      return this.favoriteMovies;
     });
   }
 
@@ -60,6 +61,22 @@ export class MovieCardComponent implements OnInit {
   removeFavorite(movieId: string): void {
     this.fetchApiData.removeFavoriteMovies(movieId).subscribe((resp: any) => {
       this.getFavoriteMovies();
+    });
+  }
+
+  directorDialog(movie: any): void {
+    const { name, bio } = movie.director;
+    this.dialog.open(DirectorViewComponent, {
+      data: { name, bio },
+      panelClass: 'director-dialog',
+    });
+  }
+
+  movieDialog(movie: any): void {
+    const { title, description } = movie;
+    this.dialog.open(MovieViewComponent, {
+      data: { title, description },
+      panelClass: 'movie-dialog',
     });
   }
 }
