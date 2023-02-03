@@ -28,6 +28,10 @@ export class UserProfileComponent implements OnInit {
     this.getUserData();
   }
 
+  /**
+   * @returns object with user information
+   * @function getUserData
+   */
   getUserData(): void {
     this.fetchApiData.getUser().subscribe((resp: any) => {
       this.user = resp;
@@ -38,6 +42,10 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
+  /**
+   * POST | Update userData
+   * @function updateUserData
+   */
   updateUserData(): void {
     this.fetchApiData.updateUser(this.updateUser).subscribe((result) => {
       console.log(result);
@@ -58,6 +66,10 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
+  /**
+   * Delete user
+   * @function deleteUser
+   */
   deleteUser(): void {
     if (confirm('All your data will be lost - this cannot be undone!')) {
       this.router.navigate(['welcome']).then(() => {
