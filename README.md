@@ -4,7 +4,7 @@ A movie application made with Angular, Angular Material, SCSS, and TypeScript.
 
 ## Screenshot
 
-![Screenshot of myFlix](./src/assets/myFlix.png)
+<img width="1728" alt="Screenshot 2023-02-03 at 14 02 59" src="https://user-images.githubusercontent.com/98701957/216737994-95361828-9f81-4fd2-9506-e4851aececd6.png">
 
 ## Live demo
 
